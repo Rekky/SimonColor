@@ -27,15 +27,13 @@
                     android:padding="10dip"
                     android:layout_height="fill_parent">
 
-                    <ImageView
-                        android:id="@+id/image1"
-                        android:layout_height="fill_parent"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
+                    <Button
                         android:layout_width="fill_parent"
-                        android:layout_gravity="center"
-                        android:clickable="false"
-                        android:background="#ff00b039" />
+                        android:layout_height="fill_parent"
+                        android:text=""
+                        android:id="@+id/button1"
+                        android:background="#ff00ff00"
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -45,14 +43,13 @@
                     android:padding="10dip"
                     android:layout_height="fill_parent">
 
-                    <ImageView
-                        android:id="@+id/image2"
-                        android:layout_height="fill_parent"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
+                    <Button
                         android:layout_width="fill_parent"
-                        android:layout_gravity="center"
-                        android:background="#ffff0b00" />
+                        android:layout_height="fill_parent"
+                        android:text=""
+                        android:id="@+id/button2"
+                        android:background="#ffff0000"
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -69,14 +66,13 @@
                     android:padding="10dip"
                     android:layout_height="fill_parent">
 
-                    <ImageView
-                        android:id="@+id/image3"
-                        android:layout_height="fill_parent"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
+                    <Button
                         android:layout_width="fill_parent"
-                        android:layout_gravity="center"
-                        android:background="#ffffdb00" />
+                        android:layout_height="fill_parent"
+                        android:text=""
+                        android:id="@+id/button3"
+                        android:background="#ff0000ff"
+                        android:onClick="onClick" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,14 +82,13 @@
                     android:padding="10dip"
                     android:layout_height="fill_parent">
 
-                    <ImageView
-                        android:id="@+id/image4"
-                        android:layout_height="fill_parent"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
+                    <Button
                         android:layout_width="fill_parent"
-                        android:layout_gravity="center"
-                        android:background="#ff011fff" />
+                        android:layout_height="fill_parent"
+                        android:text=""
+                        android:id="@+id/button4"
+                        android:background="#fffffe00"
+                        android:onClick="onClick" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
