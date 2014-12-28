@@ -7,7 +7,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="text"
         android:id="@+id/textViewDialog"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textSize="80dp"
+        android:textColor="#ff0c9cff"
+        android:textAlignment="center"
+        android:layout_margin="20dp" />
 </LinearLayout>

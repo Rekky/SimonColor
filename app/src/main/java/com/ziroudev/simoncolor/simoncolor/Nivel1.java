@@ -1,6 +1,7 @@
 package com.ziroudev.simoncolor.simoncolor;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -8,7 +9,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.widget.Toast.LENGTH_SHORT;
@@ -19,21 +22,27 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     private int estado;
 
     //variables de dialogo
-    private ProgressDialog dialog;
+    private Dialog dialog;
 
     //variables generales
     private int contador = 3;
     private int max,min,n;
     private Button but1, but2, but3, but4;
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel1);
-        //dialogo del contador
-        dialog = new ProgressDialog(this);
-        dialog.setMessage(""+contador);
+
+        //creacion dialogo del contador{
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialogo);
+        text = (TextView) dialog.findViewById(R.id.textViewDialog);
+        text.setText(""+contador+"");
         dialog.setCancelable(false);
+        //}
 
         estado=0;
         but1 = (Button) findViewById(R.id.button1);
@@ -263,7 +272,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         }
 
         protected void onProgressUpdate (Float... valores) {
-            dialog.setMessage(""+contador);
+            text.setText(""+contador+"");
         }
 
         protected void onPostExecute(Integer bytes) {
