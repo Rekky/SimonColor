@@ -2,11 +2,13 @@ package com.ziroudev.simoncolor.simoncolor;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -27,7 +29,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //variables generales
     private int contador = 3;
     private int max,min,n;
-    private Button but1, but2, but3, but4;
+    Button but1, but2, but3, but4;
     TextView text;
 
     @Override
@@ -58,10 +60,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
         //llama al metodo de inciar botones aleatoriamente
         iniciarBotones();
-
         cuentaAtras();
-
-       // empiezaPartida();
     }
 
     //metodo que retorna sun numero aleatorio entre min y max
@@ -135,19 +134,14 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             //al dar clic a los botones cambian de color
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 //cambia solo el boton seleccionado
-                if( v.getId() == R.id.button1){
+                if( v.getId() == R.id.button1)
                     but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                }
-                else if(v.getId() == R.id.button2) {
+                else if(v.getId() == R.id.button2)
                     but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                }
-                else if(v.getId() == R.id.button3){
+                else if(v.getId() == R.id.button3)
                     but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                }
-                else if(v.getId() == R.id.button4){
+                else if(v.getId() == R.id.button4)
                     but4.setBackgroundColor(Color.rgb(255, 255, 160));
-                }
-
             }
             //al dejar de dar click regresan a su color actual
             if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -160,18 +154,14 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         else if(estado == 2){
             //al dar clic a los botones cambian de color
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                if(v.getId() == R.id.button1){
+                if(v.getId() == R.id.button1)
                     but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                }
-                else if(v.getId() == R.id.button2){
+                else if(v.getId() == R.id.button2)
                     but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                }
-                else  if(v.getId() == R.id.button3){
+                else  if(v.getId() == R.id.button3)
                     but3.setBackgroundColor(Color.rgb(160, 255,160));
-                }
-                else if(v.getId() == R.id.button4){
+                else if(v.getId() == R.id.button4)
                     but4.setBackgroundColor(Color.rgb(255, 160, 160));
-                }
             }
             //al dejar de dar click regresan a su color actual
             if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -184,18 +174,14 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         else if(estado == 3){
                 //al dar clic a los botones cambian de color
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    if(v.getId() == R.id.button1) {
+                    if(v.getId() == R.id.button1)
                         but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                    }
-                    else if(v.getId() == R.id.button2){
+                    else if(v.getId() == R.id.button2)
                         but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                    }
-                    else if(v.getId() == R.id.button3){
+                    else if(v.getId() == R.id.button3)
                         but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                    }
-                    else if(v.getId() == R.id.button4) {
+                    else if(v.getId() == R.id.button4)
                         but4.setBackgroundColor(Color.rgb(160, 255, 160));
-                    }
                 }
                 //al dejar de dar click regresan a su color actual
                 if(event.getAction() == MotionEvent.ACTION_UP){
@@ -208,18 +194,14 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         else if(estado == 4) {
                 //al dar clic a los botones cambian de color
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    if(v.getId() == R.id.button1) {
+                    if(v.getId() == R.id.button1)
                         but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                    }
-                    else if(v.getId() == R.id.button2) {
+                    else if(v.getId() == R.id.button2)
                         but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                    }
-                    else if(v.getId() == R.id.button3){
+                    else if(v.getId() == R.id.button3)
                         but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                    }
-                    else if(v.getId() == R.id.button4){
+                    else if(v.getId() == R.id.button4)
                         but4.setBackgroundColor(Color.rgb(160, 160, 255));
-                    }
                 }
                 //al dejar de dar click regresan a su color actual
                 if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -237,14 +219,126 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         new CuentaAtras().execute();
     }
 
-
+    //metodo que empieza a mostrar el patron a seguir de simon
     public void empiezaPartida(){
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                but1.setBackgroundColor(Color.rgb(160, 255, 160));
+        Thread the = new Thread(){
+                @Override
+                public void run () {
+                    while(true) {
+                        try {
+                            synchronized (this) {
+                                sleep(500);
+                                //el run siguiente hace pueda cojer los recursos del thread principal
+                                //para poder cambiar los colores de los buttons
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        n = (int) (Math.random() * (100 - 0) + 0);
+                                        if(estado == 1){
+                                            if(n > 0 && n < 25)
+                                                but1.setBackgroundColor(Color.rgb(255, 160, 160));
+                                            else if(n > 25 && n < 50)
+                                                but2.setBackgroundColor(Color.rgb(160, 255, 160));
+                                            else if(n > 50 && n < 75)
+                                                but3.setBackgroundColor(Color.rgb(160, 160, 255));
+                                            else if(n > 75 && n < 100)
+                                                but4.setBackgroundColor(Color.rgb(255, 255, 160));
+                                        }
+                                        else if(estado == 2){
+                                            if(n > 0 && n < 25)
+                                                but1.setBackgroundColor(Color.rgb(255, 255, 160));
+                                            else if(n > 25 && n < 50)
+                                                but2.setBackgroundColor(Color.rgb(160, 160, 255));
+                                            else if(n > 50 && n < 75)
+                                                but3.setBackgroundColor(Color.rgb(160, 255,160));
+                                            else if(n > 75 && n < 100)
+                                                but4.setBackgroundColor(Color.rgb(255, 160, 160));
+                                        }
+                                        else if(estado == 3){
+                                            if(n > 0 && n < 25)
+                                                but1.setBackgroundColor(Color.rgb(160, 160, 255));
+                                            else if(n > 25 && n < 50)
+                                                but2.setBackgroundColor(Color.rgb(255, 255, 160));
+                                            else if(n > 50 && n < 75)
+                                                but3.setBackgroundColor(Color.rgb(255, 160, 160));
+                                            else if(n > 75 && n < 100)
+                                                but4.setBackgroundColor(Color.rgb(160, 255, 160));
+                                        }
+                                        else if(estado == 4) {
+                                            if(n > 0 && n < 25)
+                                                but1.setBackgroundColor(Color.rgb(160, 255, 160));
+                                            else if(n > 25 && n < 50)
+                                                but2.setBackgroundColor(Color.rgb(255, 160, 160));
+                                            else if(n > 50 && n < 75)
+                                                but3.setBackgroundColor(Color.rgb(255, 255, 160));
+                                            else if(n > 75 && n < 100)
+                                                but4.setBackgroundColor(Color.rgb(160, 160, 255));
+                                        }
+                                    }
+                                });
+
+                                sleep(500);//duerme el thread//
+
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                            if(estado == 1){
+                                                but1.setBackgroundColor(Color.rgb(255, 0, 0));
+                                                but2.setBackgroundColor(Color.rgb(0, 255, 0));
+                                                but3.setBackgroundColor(Color.rgb(0, 0, 255));
+                                                but4.setBackgroundColor(Color.rgb(255, 255, 0));
+                                            }else if(estado == 2){
+                                                but1.setBackgroundColor(Color.rgb(255, 255, 0));
+                                                but2.setBackgroundColor(Color.rgb(0, 0, 255));
+                                                but3.setBackgroundColor(Color.rgb(0, 255, 0));
+                                                but4.setBackgroundColor(Color.rgb(255, 0, 0));
+                                            }else if(estado == 3){
+                                                but1.setBackgroundColor(Color.rgb(0, 0, 255));
+                                                but2.setBackgroundColor(Color.rgb(255, 255, 0));
+                                                but3.setBackgroundColor(Color.rgb(255, 0, 0));
+                                                but4.setBackgroundColor(Color.rgb(0, 255, 0));
+                                            }else if(estado == 4){
+                                                but1.setBackgroundColor(Color.rgb(0, 255, 0));
+                                                but2.setBackgroundColor(Color.rgb(255, 0, 0));
+                                                but3.setBackgroundColor(Color.rgb(255, 255, 0));
+                                                but4.setBackgroundColor(Color.rgb(0, 0, 255));
+                                            }
+                                    }
+                                });
+
+                            }
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
             }
-        }, 3000);
+
+        };
+        the.start();
+
+
+    }
+
+    private class comenzarPartida extends AsyncTask<View, View, Void>{
+
+        @Override
+        protected Void doInBackground(View... params) {
+            for(int i=0; i < 4; i++){
+                n = (int) (Math.random() * (100 - 0) + 0);
+
+                if(n > 0 && n < 25)
+                    but1.setBackgroundColor(Color.DKGRAY);
+                else if(n > 25 && n < 50)
+                    but2.setBackgroundColor(Color.CYAN);
+                else if(n > 50 && n < 75)
+                    but3.setBackgroundColor(Color.GRAY);
+                else if(n > 75 && n < 100)
+                    but4.setBackgroundColor(Color.WHITE);
+                Log.e("hola",""+n);
+
+            }
+            return null;
+        }
     }
 
 
@@ -277,6 +371,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
         protected void onPostExecute(Integer bytes) {
             dialog.dismiss();
+            empiezaPartida();
         }
     }
 }
