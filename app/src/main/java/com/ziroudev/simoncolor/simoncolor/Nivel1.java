@@ -27,6 +27,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     private Dialog dialog;
 
     //variables generales
+    Secuencia secuencia = new Secuencia();
     private int contador = 3;
     private int max,min,n;
     Button but1, but2, but3, but4;
