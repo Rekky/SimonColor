@@ -8,9 +8,9 @@ public class Secuencia {
     char[] vectorSecuencia = new char[10];
 
     public Secuencia(){
-        n = (int)(Math.random()*(100-0)+0);
 
         for(int i=0; i<vectorSecuencia.length; i++) {
+            n = (int)(Math.random()*(100-0)+0);
             if (n > 0 && n < 25)
                 vectorSecuencia[i] = 'R';
             else if (n > 25 && n < 50)

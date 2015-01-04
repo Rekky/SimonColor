@@ -32,6 +32,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     private int max,min,n;
     Button but1, but2, but3, but4;
     TextView text;
+    int xi=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,57 +223,59 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
     //metodo que empieza a mostrar el patron a seguir de simon
     public void empiezaPartida(){
+
         Thread the = new Thread(){
                 @Override
                 public void run () {
-                    while(true) {
+
+                    for(xi=0; xi<secuencia.vectorSecuencia.length; xi++) {
                         try {
                             synchronized (this) {
+                                Log.e("zirou",""+secuencia.vectorSecuencia[xi]);
                                 sleep(500);
                                 //el run siguiente hace pueda cojer los recursos del thread principal
                                 //para poder cambiar los colores de los buttons
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        n = (int) (Math.random() * (100 - 0) + 0);
                                         if(estado == 1){
-                                            if(n > 0 && n < 25)
+                                            if(secuencia.vectorSecuencia[xi] == 'R')
                                                 but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(n > 25 && n < 50)
+                                            else if(secuencia.vectorSecuencia[xi] == 'V')
                                                 but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(n > 50 && n < 75)
+                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
                                                 but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(n > 75 && n < 100)
+                                            else if(secuencia.vectorSecuencia[xi] == 'A')
                                                 but4.setBackgroundColor(Color.rgb(255, 255, 160));
                                         }
                                         else if(estado == 2){
-                                            if(n > 0 && n < 25)
+                                            if(secuencia.vectorSecuencia[xi] == 'A')
                                                 but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(n > 25 && n < 50)
+                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
                                                 but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(n > 50 && n < 75)
+                                            else if(secuencia.vectorSecuencia[xi] == 'V')
                                                 but3.setBackgroundColor(Color.rgb(160, 255,160));
-                                            else if(n > 75 && n < 100)
+                                            else if(secuencia.vectorSecuencia[xi] == 'R')
                                                 but4.setBackgroundColor(Color.rgb(255, 160, 160));
                                         }
                                         else if(estado == 3){
-                                            if(n > 0 && n < 25)
+                                            if(secuencia.vectorSecuencia[xi] == 'Z')
                                                 but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(n > 25 && n < 50)
+                                            else if(secuencia.vectorSecuencia[xi] == 'A')
                                                 but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(n > 50 && n < 75)
+                                            else if(secuencia.vectorSecuencia[xi] == 'R')
                                                 but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(n > 75 && n < 100)
+                                            else if(secuencia.vectorSecuencia[xi] == 'V')
                                                 but4.setBackgroundColor(Color.rgb(160, 255, 160));
                                         }
                                         else if(estado == 4) {
-                                            if(n > 0 && n < 25)
+                                            if(secuencia.vectorSecuencia[xi] == 'V')
                                                 but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(n > 25 && n < 50)
+                                            else if(secuencia.vectorSecuencia[xi] == 'R')
                                                 but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(n > 50 && n < 75)
+                                            else if(secuencia.vectorSecuencia[xi] == 'A')
                                                 but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(n > 75 && n < 100)
+                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
                                                 but4.setBackgroundColor(Color.rgb(160, 160, 255));
                                         }
                                     }
@@ -311,6 +314,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+
                     }
             }
 
