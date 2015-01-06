@@ -5,7 +5,7 @@ package com.ziroudev.simoncolor.simoncolor;
  */
 public class Secuencia {
     int n;
-    char[] vectorSecuencia = new char[10];
+    char[] vectorSecuencia = new char[100];
 
     public Secuencia(){
 
