@@ -26,7 +26,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //variables generales
     Secuencia secuencia = new Secuencia();
     Button but1, but2, but3, but4;
-    private char[] vectorJugador = new char[secuencia.vectorSecuencia.length];
+    private String[] vectorJugador = new String[secuencia.vectorSecuencia.length];
     private TextView text;
     private int contadorDialogo = 3;
     private int contadorSecuencia = 3;
@@ -135,25 +135,25 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 //cambia solo el boton seleccionado
                 if( v.getId() == R.id.button1){
                     but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                    vectorJugador[contadorVectorJugador] = 'R';
+                    vectorJugador[contadorVectorJugador] = "Rojo";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else if(v.getId() == R.id.button2){
                     but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                    vectorJugador[contadorVectorJugador] = 'V';
+                    vectorJugador[contadorVectorJugador] = "Verde";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else if(v.getId() == R.id.button3){
                     but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                    vectorJugador[contadorVectorJugador] = 'Z';
+                    vectorJugador[contadorVectorJugador] = "Azul";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else if(v.getId() == R.id.button4){
                     but4.setBackgroundColor(Color.rgb(255, 255, 160));
-                    vectorJugador[contadorVectorJugador] = 'A';
+                    vectorJugador[contadorVectorJugador] = "Amarillo";
                     contadorVectorJugador++;
                     comprueba();
                 }
@@ -171,25 +171,25 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 if(v.getId() == R.id.button1){
                     but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                    vectorJugador[contadorVectorJugador] = 'A';
+                    vectorJugador[contadorVectorJugador] = "Amarillo";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else if(v.getId() == R.id.button2){
                     but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                    vectorJugador[contadorVectorJugador] = 'Z';
+                    vectorJugador[contadorVectorJugador] = "Azul";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else  if(v.getId() == R.id.button3){
                     but3.setBackgroundColor(Color.rgb(160, 255,160));
-                    vectorJugador[contadorVectorJugador] = 'V';
+                    vectorJugador[contadorVectorJugador] = "Verde";
                     contadorVectorJugador++;
                     comprueba();
                 }
                 else if(v.getId() == R.id.button4){
                     but4.setBackgroundColor(Color.rgb(255, 160, 160));
-                    vectorJugador[contadorVectorJugador] = 'R';
+                    vectorJugador[contadorVectorJugador] = "Rojo";
                     contadorVectorJugador++;
                     comprueba();
                 }
@@ -208,25 +208,25 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     if(v.getId() == R.id.button1){
                         but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                        vectorJugador[contadorVectorJugador] = 'Z';
+                        vectorJugador[contadorVectorJugador] = "Azul";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button2){
                         but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                        vectorJugador[contadorVectorJugador] = 'A';
+                        vectorJugador[contadorVectorJugador] = "Amarillo";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button3){
                         but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                        vectorJugador[contadorVectorJugador] = 'R';
+                        vectorJugador[contadorVectorJugador] = "Rojo";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button4){
                         but4.setBackgroundColor(Color.rgb(160, 255, 160));
-                        vectorJugador[contadorVectorJugador] = 'V';
+                        vectorJugador[contadorVectorJugador] = "Verde";
                         contadorVectorJugador++;
                         comprueba();
                     }
@@ -244,25 +244,25 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(v.getId() == R.id.button1){
                         but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                        vectorJugador[contadorVectorJugador] = 'V';
+                        vectorJugador[contadorVectorJugador] = "Verde";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button2){
                         but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                        vectorJugador[contadorVectorJugador] = 'R';
+                        vectorJugador[contadorVectorJugador] = "Rojo";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button3){
                         but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                        vectorJugador[contadorVectorJugador] = 'A';
+                        vectorJugador[contadorVectorJugador] = "Amarillo";
                         contadorVectorJugador++;
                         comprueba();
                     }
                     else if(v.getId() == R.id.button4){
                         but4.setBackgroundColor(Color.rgb(160, 160, 255));
-                        vectorJugador[contadorVectorJugador] = 'Z';
+                        vectorJugador[contadorVectorJugador] = "Azul";
                         contadorVectorJugador++;
                         comprueba();
                     }
@@ -304,43 +304,43 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                                     @Override
                                     public void run() {
                                         if(estado == 1){
-                                            if(secuencia.vectorSecuencia[xi] == 'R')
+                                            if(secuencia.vectorSecuencia[xi] == "Rojo")
                                                 but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'V')
+                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
                                                 but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
+                                            else if(secuencia.vectorSecuencia[xi] =="azul")
                                                 but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == 'A')
+                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
                                                 but4.setBackgroundColor(Color.rgb(255, 255, 160));
                                         }
                                         else if(estado == 2){
-                                            if(secuencia.vectorSecuencia[xi] == 'A')
+                                            if(secuencia.vectorSecuencia[xi] == "Amarillo")
                                                 but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
+                                            else if(secuencia.vectorSecuencia[xi] == "Azul")
                                                 but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == 'V')
+                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
                                                 but3.setBackgroundColor(Color.rgb(160, 255,160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'R')
+                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
                                                 but4.setBackgroundColor(Color.rgb(255, 160, 160));
                                         }
                                         else if(estado == 3){
-                                            if(secuencia.vectorSecuencia[xi] == 'Z')
+                                            if(secuencia.vectorSecuencia[xi] == "Azul")
                                                 but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == 'A')
+                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
                                                 but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'R')
+                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
                                                 but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'V')
+                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
                                                 but4.setBackgroundColor(Color.rgb(160, 255, 160));
                                         }
                                         else if(estado == 4) {
-                                            if(secuencia.vectorSecuencia[xi] == 'V')
+                                            if(secuencia.vectorSecuencia[xi] == "Verde")
                                                 but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'R')
+                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
                                                 but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'A')
+                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
                                                 but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == 'Z')
+                                            else if(secuencia.vectorSecuencia[xi] == "Azul")
                                                 but4.setBackgroundColor(Color.rgb(160, 160, 255));
                                         }
                                     }

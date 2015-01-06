@@ -5,20 +5,20 @@ package com.ziroudev.simoncolor.simoncolor;
  */
 public class Secuencia {
     int n;
-    char[] vectorSecuencia = new char[100];
+    String[] vectorSecuencia = new String[100];
 
     public Secuencia(){
 
         for(int i=0; i<vectorSecuencia.length; i++) {
             n = (int)(Math.random()*(100-0)+0);
             if (n > 0 && n < 25)
-                vectorSecuencia[i] = 'R';
+                vectorSecuencia[i] = "Rojo";
             else if (n > 25 && n < 50)
-                vectorSecuencia[i] = 'A';
+                vectorSecuencia[i] = "Azul";
             else if (n > 50 && n < 75)
-                vectorSecuencia[i] = 'V';
+                vectorSecuencia[i] = "Verde";
             else if (n > 75 && n < 100)
-                vectorSecuencia[i] = 'Z';
+                vectorSecuencia[i] = "Azul";
         }
     }
 }
