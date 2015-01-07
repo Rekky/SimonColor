@@ -256,7 +256,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                     for(xi=0; xi<contadorSecuencia; xi++) {
                         try {
                             synchronized (this) {
-                                Log.e("SIMON",""+secuencia.vectorSecuencia[xi]);
+                                Log.e("SIMON",""+secuencia.vectorSimon[xi]);
                                 sleep(480);
                                 //el run siguiente hace pueda cojer los recursos del thread principal
                                 //para poder cambiar los colores de los buttons
@@ -265,43 +265,43 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                                     @Override
                                     public void run() {
                                         if(estado == 1){
-                                            if(secuencia.vectorSecuencia[xi] == "Rojo")
+                                            if(secuencia.vectorSimon[xi] == "Rojo")
                                                 but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
+                                            else if(secuencia.vectorSimon[xi] == "Verde")
                                                 but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] =="azul")
+                                            else if(secuencia.vectorSimon[xi] =="azul")
                                                 but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
+                                            else if(secuencia.vectorSimon[xi] == "Amarillo")
                                                 but4.setBackgroundColor(Color.rgb(255, 255, 160));
                                         }
                                         else if(estado == 2){
-                                            if(secuencia.vectorSecuencia[xi] == "Amarillo")
+                                            if(secuencia.vectorSimon[xi] == "Amarillo")
                                                 but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Azul")
+                                            else if(secuencia.vectorSimon[xi] == "Azul")
                                                 but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
+                                            else if(secuencia.vectorSimon[xi] == "Verde")
                                                 but3.setBackgroundColor(Color.rgb(160, 255,160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
+                                            else if(secuencia.vectorSimon[xi] == "Rojo")
                                                 but4.setBackgroundColor(Color.rgb(255, 160, 160));
                                         }
                                         else if(estado == 3){
-                                            if(secuencia.vectorSecuencia[xi] == "Azul")
+                                            if(secuencia.vectorSimon[xi] == "Azul")
                                                 but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
+                                            else if(secuencia.vectorSimon[xi] == "Amarillo")
                                                 but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
+                                            else if(secuencia.vectorSimon[xi] == "Rojo")
                                                 but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Verde")
+                                            else if(secuencia.vectorSimon[xi] == "Verde")
                                                 but4.setBackgroundColor(Color.rgb(160, 255, 160));
                                         }
                                         else if(estado == 4) {
-                                            if(secuencia.vectorSecuencia[xi] == "Verde")
+                                            if(secuencia.vectorSimon[xi] == "Verde")
                                                 but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Rojo")
+                                            else if(secuencia.vectorSimon[xi] == "Rojo")
                                                 but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Amarillo")
+                                            else if(secuencia.vectorSimon[xi] == "Amarillo")
                                                 but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                                            else if(secuencia.vectorSecuencia[xi] == "Azul")
+                                            else if(secuencia.vectorSimon[xi] == "Azul")
                                                 but4.setBackgroundColor(Color.rgb(160, 160, 255));
                                         }
                                     }
@@ -351,8 +351,9 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //clase que es llamada para comprobar si es correcta la secuencia del jugador
     public void comprueba(String color){
         Log.e("CONTADOR_AHORA", ""+contadorComprueba);
-        Log.e("","VECTOR_SIMON_AHORA"+secuencia.vectorSecuencia[contadorComprueba]);
-        if(color == secuencia.vectorSecuencia[contadorComprueba]){
+        Log.e("","VECTOR_SIMON_AHORA"+secuencia.vectorSimon[contadorComprueba]);
+        //comparo el parametro que paso de color con el color del vector simon
+        if(color == secuencia.vectorSimon[contadorComprueba]){
             contadorComprueba++;
 
             if(contadorComprueba == contadorSecuencia){
