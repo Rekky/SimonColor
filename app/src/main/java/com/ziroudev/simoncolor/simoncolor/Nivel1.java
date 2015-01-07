@@ -1,11 +1,14 @@
 package com.ziroudev.simoncolor.simoncolor;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -22,6 +25,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
     //variables de dialogo
     private Dialog dialog;
+    private DialogFallo dialogFallo = new DialogFallo();
 
     //variables generales
     Secuencia secuencia = new Secuencia();
@@ -257,7 +261,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                         try {
                             synchronized (this) {
                                 Log.e("SIMON",""+secuencia.vectorSimon[xi]);
-                                sleep(480);
+                                sleep(600);
                                 //el run siguiente hace pueda cojer los recursos del thread principal
                                 //para poder cambiar los colores de los buttons
                                 //cambia el color a un color iluminado
@@ -307,7 +311,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                                     }
                                 });
 
-                                sleep(480);//duerme el thread//
+                                sleep(600);//duerme el thread//
                                 //devuleve el color a su estado original
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -361,6 +365,8 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 contadorComprueba = 0;
                 empiezaPartida();
             }
+        }else{
+            dialogFallo.show(getFragmentManager(),"tagFallo");
         }
 
     }
@@ -421,4 +427,5 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             empiezaPartida();
         }
     }
+
 }
