@@ -26,13 +26,12 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //variables generales
     Secuencia secuencia = new Secuencia();
     Button but1, but2, but3, but4;
-    private String[] vectorJugador = new String[secuencia.vectorSecuencia.length];
     private TextView text;
     private int contadorDialogo = 3;
     private int contadorSecuencia = 3;
     private int contadorVectorJugador = 0;
     private int contadorComprueba = 0;
-    private int max,min,n;
+    private int n;
     int xi=0;
 
     @Override
@@ -66,15 +65,9 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         cuentaAtras();
     }
 
-    //metodo que retorna sun numero aleatorio entre min y max
-    public int  random(int max,int min){
-        n = (int)(Math.random()*(max-min)+min);
-        return n;
-    }
-
     //metodo para iniciar los colores aleatoriamente
     public void iniciarBotones(){
-        n = random(0,20);
+        n = (int)(Math.random()*(20-0)+0);
         //Toast.makeText(this,n+"", LENGTH_SHORT).show();
         //orden rojo,verde,azul,amarillo
         if(n>=0 && n<5){
@@ -135,27 +128,19 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 //cambia solo el boton seleccionado
                 if( v.getId() == R.id.button1){
                     but1.setBackgroundColor(Color.rgb(255, 160, 160));
-                    vectorJugador[contadorVectorJugador] = "Rojo";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Rojo");
                 }
                 else if(v.getId() == R.id.button2){
                     but2.setBackgroundColor(Color.rgb(160, 255, 160));
-                    vectorJugador[contadorVectorJugador] = "Verde";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Verde");
                 }
                 else if(v.getId() == R.id.button3){
                     but3.setBackgroundColor(Color.rgb(160, 160, 255));
-                    vectorJugador[contadorVectorJugador] = "Azul";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Azul");
                 }
                 else if(v.getId() == R.id.button4){
                     but4.setBackgroundColor(Color.rgb(255, 255, 160));
-                    vectorJugador[contadorVectorJugador] = "Amarillo";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Amarillo");
                 }
             }
             //al dejar de dar click regresan a su color actual
@@ -171,27 +156,19 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
                 if(v.getId() == R.id.button1){
                     but1.setBackgroundColor(Color.rgb(255, 255, 160));
-                    vectorJugador[contadorVectorJugador] = "Amarillo";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Amarillo");
                 }
                 else if(v.getId() == R.id.button2){
                     but2.setBackgroundColor(Color.rgb(160, 160, 255));
-                    vectorJugador[contadorVectorJugador] = "Azul";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Azul");
                 }
                 else  if(v.getId() == R.id.button3){
                     but3.setBackgroundColor(Color.rgb(160, 255,160));
-                    vectorJugador[contadorVectorJugador] = "Verde";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Verde");
                 }
                 else if(v.getId() == R.id.button4){
                     but4.setBackgroundColor(Color.rgb(255, 160, 160));
-                    vectorJugador[contadorVectorJugador] = "Rojo";
-                    contadorVectorJugador++;
-                    comprueba();
+                    comprueba("Rojo");
                 }
 
             }
@@ -208,27 +185,19 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 if(event.getAction() == MotionEvent.ACTION_DOWN){
                     if(v.getId() == R.id.button1){
                         but1.setBackgroundColor(Color.rgb(160, 160, 255));
-                        vectorJugador[contadorVectorJugador] = "Azul";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Azul");
                     }
                     else if(v.getId() == R.id.button2){
                         but2.setBackgroundColor(Color.rgb(255, 255, 160));
-                        vectorJugador[contadorVectorJugador] = "Amarillo";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Amarillo");
                     }
                     else if(v.getId() == R.id.button3){
                         but3.setBackgroundColor(Color.rgb(255, 160, 160));
-                        vectorJugador[contadorVectorJugador] = "Rojo";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Rojo");
                     }
                     else if(v.getId() == R.id.button4){
                         but4.setBackgroundColor(Color.rgb(160, 255, 160));
-                        vectorJugador[contadorVectorJugador] = "Verde";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Verde");
                     }
                 }
                 //al dejar de dar click regresan a su color actual
@@ -244,27 +213,19 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(v.getId() == R.id.button1){
                         but1.setBackgroundColor(Color.rgb(160, 255, 160));
-                        vectorJugador[contadorVectorJugador] = "Verde";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Verde");
                     }
                     else if(v.getId() == R.id.button2){
                         but2.setBackgroundColor(Color.rgb(255, 160, 160));
-                        vectorJugador[contadorVectorJugador] = "Rojo";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Rojo");
                     }
                     else if(v.getId() == R.id.button3){
                         but3.setBackgroundColor(Color.rgb(255, 255, 160));
-                        vectorJugador[contadorVectorJugador] = "Amarillo";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Amarillo");
                     }
                     else if(v.getId() == R.id.button4){
                         but4.setBackgroundColor(Color.rgb(160, 160, 255));
-                        vectorJugador[contadorVectorJugador] = "Azul";
-                        contadorVectorJugador++;
-                        comprueba();
+                        comprueba("Azul");
                     }
                 }
                 //al dejar de dar click regresan a su color actual
@@ -296,7 +257,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                         try {
                             synchronized (this) {
                                 Log.e("SIMON",""+secuencia.vectorSecuencia[xi]);
-                                sleep(500);
+                                sleep(480);
                                 //el run siguiente hace pueda cojer los recursos del thread principal
                                 //para poder cambiar los colores de los buttons
                                 //cambia el color a un color iluminado
@@ -346,7 +307,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                                     }
                                 });
 
-                                sleep(500);//duerme el thread//
+                                sleep(480);//duerme el thread//
                                 //devuleve el color a su estado original
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -388,27 +349,19 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     }
 
     //clase que es llamada para comprobar si es correcta la secuencia del jugador
-    public void comprueba(){
-        if(vectorJugador[contadorComprueba] == secuencia.vectorSecuencia[contadorComprueba]){
+    public void comprueba(String color){
+        Log.e("CONTADOR_AHORA", ""+contadorComprueba);
+        Log.e("","VECTOR_SIMON_AHORA"+secuencia.vectorSecuencia[contadorComprueba]);
+        if(color == secuencia.vectorSecuencia[contadorComprueba]){
             contadorComprueba++;
-            Log.e("NUMEROS i", ""+contadorComprueba);
+
             if(contadorComprueba == contadorSecuencia){
                 contadorSecuencia++;
                 contadorComprueba = 0;
-                Log.e("VECTOR_JUGADOR",""+vectorJugador[contadorComprueba]);
-                Log.e("POS_CONTADOR JUGADOR",""+contadorVectorJugador);
-                Log.e("CONTADO COMPRUEBA",""+contadorComprueba);
-                Log.e("PUNTOS","+10");
-
-                //---continua la partida, le toca a simon ahora
                 empiezaPartida();
             }
-        }else{
-            Toast.makeText(this, "FALLASTE WEY!!!", LENGTH_SHORT).show();
-            contadorSecuencia = 0;
-            contadorComprueba = 0;
-
         }
+
     }
 
 
