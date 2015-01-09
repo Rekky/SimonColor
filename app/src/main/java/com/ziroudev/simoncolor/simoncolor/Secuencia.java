@@ -10,15 +10,15 @@ public class Secuencia {
     public Secuencia(){
 
         for(int i=0; i< vectorSimon.length; i++) {
-            n = (int)(Math.random()*(100-0)+0);
-            if (n >= 0 && n < 25)
+            n = (int)(Math.random()*(40-0)+0);
+            if (n >= 0 && n < 10)
                 vectorSimon[i] = "Rojo";
-            else if (n >= 25 && n < 50)
+            else if (n >= 10 && n < 20)
                 vectorSimon[i] = "Azul";
-            else if (n >= 50 && n < 75)
+            else if (n >= 20 && n < 30)
                 vectorSimon[i] = "Verde";
-            else if (n >= 75 && n < 100)
-                vectorSimon[i] = "Azul";
+            else if (n >= 30 && n <= 40)
+                vectorSimon[i] = "Amarillo";
         }
     }
 }
