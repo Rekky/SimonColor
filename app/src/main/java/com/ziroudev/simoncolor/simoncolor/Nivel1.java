@@ -1,14 +1,12 @@
 package com.ziroudev.simoncolor.simoncolor;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -25,7 +23,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
     //variables de dialogo
     private Dialog dialog;
-    private DialogFallo dialogFallo = new DialogFallo();
+    private DialogFallo dialogFallo = new DialogFallo(this);
 
     //variables generales
     Secuencia secuencia = new Secuencia();
@@ -261,7 +259,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                         try {
                             synchronized (this) {
                                 Log.e("SIMON",""+secuencia.vectorSimon[xi]);
-                                sleep(600);
+                                sleep(400);
                                 //el run siguiente hace pueda cojer los recursos del thread principal
                                 //para poder cambiar los colores de los buttons
                                 //cambia el color a un color iluminado
@@ -311,7 +309,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                                     }
                                 });
 
-                                sleep(600);//duerme el thread//
+                                sleep(400);//duerme el thread//
                                 //devuleve el color a su estado original
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -369,29 +367,6 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             dialogFallo.show(getFragmentManager(),"tagFallo");
         }
 
-    }
-
-
-    private class comenzarPartida extends AsyncTask<View, View, Void>{
-
-        @Override
-        protected Void doInBackground(View... params) {
-            for(int i=0; i < 4; i++){
-                n = (int) (Math.random() * (100 - 0) + 0);
-
-                if(n > 0 && n < 25)
-                    but1.setBackgroundColor(Color.DKGRAY);
-                else if(n > 25 && n < 50)
-                    but2.setBackgroundColor(Color.CYAN);
-                else if(n > 50 && n < 75)
-                    but3.setBackgroundColor(Color.GRAY);
-                else if(n > 75 && n < 100)
-                    but4.setBackgroundColor(Color.WHITE);
-                Log.e("hola",""+n);
-
-            }
-            return null;
-        }
     }
 
 
