@@ -2,6 +2,7 @@ package com.ziroudev.simoncolor.simoncolor;
 
 import android.app.Dialog;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -27,12 +28,12 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     private DialogFallo dialogFallo = new DialogFallo(this);
 
     //variables generales
+    private boolean turnoSimon = true;
     Secuencia secuencia = new Secuencia();
     Button but1, but2, but3, but4;
     private TextView text, textoScore;
     private int contadorDialogo = 3;
     private int contadorSecuencia = 3;
-    private int contadorVectorJugador = 0;
     private int contadorComprueba = 0;
     private int n;
     int xi=0;
@@ -111,6 +112,8 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
     //metodo que hace una accion al clicar cualquier imageView
     public void onClick(View v){
+        if(turnoSimon == false){
+
         if(v.getId() == R.id.button1){
             onTouch(but1,null);
         }
@@ -123,6 +126,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         else if(v.getId() == R.id.button4){
             onTouch(but4,null);
         }
+        }else{}
     }
 
     @Override
@@ -212,6 +216,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                     but2.setBackgroundColor(Color.rgb(255, 255, 0));
                     but3.setBackgroundColor(Color.rgb(255, 0, 0));
                     but4.setBackgroundColor(Color.rgb(0, 255, 0));
+
                 }
         }
         else if(estado == 4) {
@@ -240,6 +245,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
                     but2.setBackgroundColor(Color.rgb(255, 0, 0));
                     but3.setBackgroundColor(Color.rgb(255, 255, 0));
                     but4.setBackgroundColor(Color.rgb(0, 0, 255));
+
                 }
         }
         return true;
@@ -254,6 +260,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     public void empiezaPartida(){
 
         Toast.makeText(this, "TURNO DE SIMON", LENGTH_SHORT).show();
+        turnoSimon = true;
 
         Thread threadSecuencia = new Thread(){
                 @Override
@@ -352,6 +359,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
 
         };
         threadSecuencia.start();
+        turnoSimon = false;
     }
 
     //clase que es llamada para comprobar si es correcta la secuencia del jugador
