@@ -2,7 +2,6 @@ package com.ziroudev.simoncolor.simoncolor;
 
 import android.app.Dialog;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -24,8 +23,8 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     private int score = 0;
 
     //variables de dialogo
-    private Dialog dialog;
-    private DialogFallo dialogFallo = new DialogFallo(this);
+    Dialog dialog;
+    DialogFallo dialogFallo = new DialogFallo();
 
     //variables generales
     private boolean turnoSimon = true;

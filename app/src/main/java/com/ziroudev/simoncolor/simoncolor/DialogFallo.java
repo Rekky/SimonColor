@@ -15,11 +15,28 @@ import android.util.Log;
  */
 public class DialogFallo extends DialogFragment {
 
-    private Context mContext;
+    Context mContext;
 
-    public DialogFallo(Context context) {
-        this.mContext = context;
+    public static DialogFallo newInstance(int id)
+    {
+        DialogFallo myFragment = new DialogFallo ();
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        myFragment.setArguments(args);
+
+        return myFragment;
     }
+
+    public void onAttach(Activity activity) {
+        // TODO Auto-generated method stub
+        super.onAttach(activity);
+        mContext=activity;
+    }
+
+    /*
+   public DialogFallo() {
+        this.mContext = container.getContext();
+    }*/
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

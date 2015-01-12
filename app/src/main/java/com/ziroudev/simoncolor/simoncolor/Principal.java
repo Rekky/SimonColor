@@ -30,8 +30,7 @@ public class Principal extends ActionBarActivity {
         interstitial.setAdUnitId("ca-app-pub-1593828267033743/2017668118");
 
         // Crear la solicitud de anuncio.
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
+        AdRequest adRequest = new AdRequest.Builder().build();
 
         // Comenzar la carga del intersticial.
         interstitial.loadAd(adRequest);
