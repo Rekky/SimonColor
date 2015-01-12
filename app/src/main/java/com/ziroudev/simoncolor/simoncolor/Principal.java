@@ -39,7 +39,7 @@ public class Principal extends ActionBarActivity {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Salir")
                     .setMessage("Salir de Juego?")
-                    .setNegativeButton(android.R.string.cancel, null)//sin listener
+                    .setNegativeButton(android.R.string.cancel, null)//sincolor listener
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                         @Override
                         public void onClick(DialogInterface dialog, int which){

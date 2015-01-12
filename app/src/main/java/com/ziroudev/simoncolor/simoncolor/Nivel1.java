@@ -1,7 +1,6 @@
 package com.ziroudev.simoncolor.simoncolor;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -18,8 +17,10 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 
 public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
-    //con esta variable sabemos que cololes de botones tenemos
+
+    //con esta variable sabemos que colores de botones tenemos
     private int estado;
+    private int score = 0;
 
     //variables de dialogo
     private Dialog dialog;
@@ -28,7 +29,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //variables generales
     Secuencia secuencia = new Secuencia();
     Button but1, but2, but3, but4;
-    private TextView text;
+    private TextView text, textoScore;
     private int contadorDialogo = 3;
     private int contadorSecuencia = 3;
     private int contadorVectorJugador = 0;
@@ -48,8 +49,11 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
         text = (TextView) dialog.findViewById(R.id.textViewDialog);
         text.setText(""+ contadorDialogo +"");
         dialog.setCancelable(false);
-        //}
 
+        //text de score
+        textoScore = (TextView) findViewById(R.id.textScore);
+
+        //botones
         estado=0;
         but1 = (Button) findViewById(R.id.button1);
         but2 = (Button) findViewById(R.id.button2);
@@ -70,7 +74,7 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
     //metodo para iniciar los colores aleatoriamente
     public void iniciarBotones(){
         n = (int)(Math.random()*(20-0)+0);
-        //Toast.makeText(this,n+"", LENGTH_SHORT).show();
+
         //orden rojo,verde,azul,amarillo
         if(n>=0 && n<5){
             but1.setBackgroundColor(Color.rgb(255, 0, 0));
@@ -359,6 +363,10 @@ public class Nivel1 extends ActionBarActivity implements View.OnTouchListener{
             contadorComprueba++;
 
             if(contadorComprueba == contadorSecuencia){
+                //score
+                score = score+1;
+                textoScore.setText(String.valueOf(score));
+
                 contadorSecuencia++;
                 contadorComprueba = 0;
                 empiezaPartida();

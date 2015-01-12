@@ -94,4 +94,41 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/sincolor"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:focusableInTouchMode="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="SCORE"
+            android:layout_marginTop="10dp"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:typeface="sans"
+            android:textStyle="bold"
+            android:singleLine="false"
+            android:id="@+id/textPuntos" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:text="0"
+            android:layout_marginTop="0dp"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/textScore" />
+
+        </FrameLayout>
+
 </FrameLayout>
