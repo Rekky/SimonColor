@@ -16,12 +16,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Empezar"
+            android:text="START"
             android:id="@+id/buttonStart"
             android:layout_gravity="center_vertical"
             android:onClick="empiezaJuego"
             android:textColor="#ff000000"
-            android:background="@android:color/white" />
+            android:background="@color/switch_thumb_normal_material_light" />
 
     </LinearLayout>
 
@@ -35,6 +35,7 @@
         android:textColor="#ffffffff"
         android:textSize="45dp"
         android:textIsSelectable="true"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:gravity="center_horizontal" />
 
 </RelativeLayout>
