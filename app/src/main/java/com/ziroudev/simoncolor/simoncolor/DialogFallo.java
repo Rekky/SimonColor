@@ -15,7 +15,7 @@ import android.util.Log;
  */
 public class DialogFallo extends DialogFragment {
 
-    Context mContext;
+    private Context mContext;
 
     public DialogFallo(Context context) {
         this.mContext = context;

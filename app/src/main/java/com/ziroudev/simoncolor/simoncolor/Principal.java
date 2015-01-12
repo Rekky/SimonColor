@@ -6,14 +6,17 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.ads.*;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 
 public class Principal extends ActionBarActivity {
     Button buttonStart;
+    private InterstitialAd interstitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +24,39 @@ public class Principal extends ActionBarActivity {
         setContentView(R.layout.activity_principal);
 
         buttonStart = (Button) findViewById(R.id.buttonStart);
+
+        // Crear el intersticial.
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId("ca-app-pub-1593828267033743/2017668118");
+
+        // Crear la solicitud de anuncio.
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+
+        // Comenzar la carga del intersticial.
+        interstitial.loadAd(adRequest);
+
+        // Prepare an Interstitial Ad Listener
+        interstitial.setAdListener(new AdListener() {
+            public void onAdLoaded() {
+                // Call displayInterstitial() function
+                displayInterstitial();
+            }
+        });
+
     }
 
     //metodo que llama al nivel de juego
     public void empiezaJuego(View v){
         Intent i = new Intent(this, Nivel1.class);
         startActivity(i);
+    }
+
+    // Invoca displayInterstitial() cuando esté preparado para mostrar un intersticial de anuncio.
+    public void displayInterstitial() {
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
     }
 
     
