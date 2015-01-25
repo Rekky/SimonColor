@@ -3,6 +3,7 @@ package com.ziroudev.simoncolor.simoncolor;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -16,7 +17,10 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class Principal extends ActionBarActivity {
     Button buttonStart;
+
+    //variables de publi
     private InterstitialAd interstitial;
+    AdRequest adRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +34,20 @@ public class Principal extends ActionBarActivity {
         interstitial.setAdUnitId("ca-app-pub-1593828267033743/2017668118");
 
         // Crear la solicitud de anuncio.
-        AdRequest adRequest = new AdRequest.Builder().build();
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
 
         // Comenzar la carga del intersticial.
         interstitial.loadAd(adRequest);
 
-        // Prepare an Interstitial Ad Listener
-        interstitial.setAdListener(new AdListener() {
+        //Prepare an Interstitial Ad Listener -- comprueba si se cargó la publi y tonces lo muestra
+        /*interstitial.setAdListener(new AdListener() {
             public void onAdLoaded() {
                 // Call displayInterstitial() function
                 displayInterstitial();
             }
-        });
+        });*/
 
     }
 
@@ -77,6 +83,8 @@ public class Principal extends ActionBarActivity {
                         }
                     })
                     .show();
+                    displayInterstitial();
+
             // Si el listener devuelve true, significa que el evento esta procesado, y nadie debe hacer nada mas
             return true;
         }
